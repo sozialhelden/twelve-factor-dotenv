@@ -11,6 +11,7 @@
   separated
 - Debug different configurations without potentially introducing new bugs in the build process
 - Supports TypeScript
+- Optional support for Express.js and React SSR
 
 ## Installation
 
@@ -25,15 +26,15 @@ yarn add @sozialhelden/twelve-factor-dotenv
 ### 1. Add a `env.ts` file to your application
 
 ```typescript
-import { loadGlobalEnvironment } from '@sozialhelden/twelve-factor-dotenv';
+const { loadGlobalEnvironment } = require('@sozialhelden/twelve-factor-dotenv');
 const env = loadGlobalEnvironment();
-export default env;
+module.exports = env;
 ```
 
 ### 2. Import the file before any other code on the server
 
 ```typescript
-import env from './env';
+const env = require('./env');
 
 // more application code here
 ```
@@ -62,12 +63,31 @@ Disadvantages:
   it can cause a slower page load.
 - The browser must load the script synchronously before any other code runs.
 
-Server side (using Express.js):
+Server side (using [Express.js](https://expressjs.com)):
 
 ```typescript
-import env, { getClientEnvironmentJSResponseHandler } from './env';
+const env = require('../lib/env');
+const { createBrowserEnvironmentJSResponseHandler } = require('@sozialhelden/twelve-factor-dotenv');
+
 const server = express();
-server.get('/clientEnv.js', getClientEnvironmentJSResponseHandler(env));
+
+// Provides access to a filtered set of environment variables on the client.
+// Read https://github.com/sozialhelden/twelve-factor-dotenv for more infos.
+server.get('/clientEnv.js', createBrowserEnvironmentJSResponseHandler(env));
+```
+
+If you don't use Express.js, you can provide your own response handler:
+
+```typescript
+const { getFilteredClientEnvironment } = require('@sozialhelden/twelve-factor-dotenv');
+
+// Provides access to a filtered set of environment variables on the client.
+// Read https://github.com/sozialhelden/twelve-factor-dotenv for more infos.
+app.route('/clientEnv.js', (req, res) => {
+  const filteredEnvObject = JSON.stringify(getFilteredClientEnvironment(env, filterFunction));
+  res.setHeader('Cache-Control', 'max-age=300');
+  res.send(`window.env = ${filteredEnvObject};`);
+});
 ```
 
 Client side:
