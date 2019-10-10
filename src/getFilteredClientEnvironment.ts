@@ -1,4 +1,3 @@
-import lodashPick from 'lodash.pick';
 import { defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
 
 export interface IEnvironment {
@@ -22,5 +21,11 @@ export function getFilteredClientEnvironment(
   env: IEnvironment,
   filterFunction: FilterFunction = defaultFilterFunction
 ): IEnvironment {
-  return lodashPick(env, Object.keys(env).filter(k => filterFunction(k, env[k])));
+  const result: IEnvironment = {};
+  Object.keys(env)
+    .filter(k => filterFunction(k, env[k]))
+    .forEach(k => {
+      result[k] = env[k];
+    });
+  return result;
 }
