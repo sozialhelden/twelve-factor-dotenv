@@ -5,7 +5,9 @@ import { EnvironmentScriptTag } from '.';
 
 describe('EnvironmentScriptTag', () => {
   it('renders when providing your own env', () => {
-    const component = renderer.create(<EnvironmentScriptTag env={{ foo: 'bar' }} />);
+    const component = renderer.create(
+      React.createElement(EnvironmentScriptTag, { env: { foo: 'bar' } })
+    );
     const tree = component.toJSON();
     expect(tree).toEqual({
       children: null,

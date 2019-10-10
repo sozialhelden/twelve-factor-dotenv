@@ -1,7 +1,7 @@
 {
   "name": "@sozialhelden/twelve-factor-dotenv",
   "private": false,
-  "version": "9.0.0",
+  "version": "8.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -22,7 +22,6 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/types": "^7.5.5",
     "@types/jest": "^24.0.18",
-    "@types/lodash.pick": "^4.4.6",
     "@types/react": "^16.9.5",
     "@types/react-test-renderer": "^16.9.0",
     "babel-jest": "^24.8.0",
@@ -64,7 +63,6 @@
     "deploy": "npm run build && npm run test:prod && npm publish --access public"
   },
   "dependencies": {
-    "dotenv": "^8.1.0",
-    "lodash.pick": "^4.4.0"
+    "dotenv": "^8.1.0"
   }
 }

@@ -8,5 +8,8 @@ export function EnvironmentScriptTag({ env }: { env: IEnvironment }) {
     );
   }
   const javascriptCode = `window.env = ${JSON.stringify(env)};`;
-  return <script type="javascript" dangerouslySetInnerHTML={{ __html: javascriptCode }} />;
+  return React.createElement('script', {
+    dangerouslySetInnerHTML: { __html: javascriptCode },
+    type: 'javascript',
+  });
 }
