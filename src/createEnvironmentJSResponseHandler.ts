@@ -1,5 +1,5 @@
-import { default as defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
-import getFilteredClientEnvironment from './getFilteredClientEnvironment';
+import { defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
+import { getFilteredClientEnvironment } from './getFilteredClientEnvironment';
 
 // Necessary subset of ExpressJS response properties
 interface IResponse {
@@ -7,7 +7,7 @@ interface IResponse {
   send: (body: string) => any;
 }
 
-export default function createEnvironmentJSResponseHandler(
+export function createEnvironmentJSResponseHandler(
   env: { [variableName: string]: string },
   filterFunction: FilterFunction = defaultFilterFunction,
   cacheControlHeaderValue: string | undefined = 'max-age=300'

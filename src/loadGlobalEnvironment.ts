@@ -84,7 +84,7 @@ export function resetInitializationCount() {
  * on each call otherwise, which might be slow.
  */
 
-export default function loadGlobalEnvironment(
+export function loadGlobalEnvironment(
   options: {
     log?: (message?: any, ...optionalParams: any[]) => void;
     getBrowserEnvironment?: () => { [variableName: string]: string };

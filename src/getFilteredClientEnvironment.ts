@@ -1,4 +1,4 @@
-import { default as defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
+import { defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
 
 // tslint:disable-next-line: no-var-requires
 const lodashPick = require('lodash.pick');
@@ -20,7 +20,7 @@ export interface IEnvironment {
  * https://12factor.net/config explains advantages of this concept.
  */
 
-export default function getFilteredClientEnvironment(
+export function getFilteredClientEnvironment(
   env: IEnvironment,
   filterFunction: FilterFunction = defaultFilterFunction
 ): IEnvironment {

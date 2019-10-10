@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 // tslint:disable-next-line: no-implicit-dependencies
 import renderer from 'react-test-renderer';
 import { EnvironmentScriptTag } from '.';
