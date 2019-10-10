@@ -7,7 +7,7 @@ interface IResponse {
   send: (body: string) => any;
 }
 
-export function createBrowserEnvironmentJSResponseHandler(
+export default function createEnvironmentJSResponseHandler(
   env: { [variableName: string]: string },
   filterFunction: FilterFunction = defaultFilterFunction,
   cacheControlHeaderValue: string | undefined = 'max-age=300'
