@@ -21,8 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "removeComments": true,
     "strictNullChecks": true,
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "jsx": "react"
   },
   "exclude": ["node_modules", "dist"]
 }
