@@ -1,13 +1,5 @@
-import { createEnvironmentJSResponseHandler } from './createEnvironmentJSResponseHandler';
-import { defaultFilterFunction } from './defaultFilterFunction';
-import { EnvironmentScriptTag } from './EnvironmentScriptTag';
-import { getFilteredClientEnvironment } from './getFilteredClientEnvironment';
-import { loadGlobalEnvironment } from './loadGlobalEnvironment';
-
-export {
-  loadGlobalEnvironment,
-  defaultFilterFunction,
-  getFilteredClientEnvironment,
-  EnvironmentScriptTag,
-  createEnvironmentJSResponseHandler,
-};
+export { createEnvironmentJSResponseHandler } from './createEnvironmentJSResponseHandler';
+export { defaultFilterFunction } from './defaultFilterFunction';
+export { EnvironmentScriptTag } from './EnvironmentScriptTag';
+export { getFilteredClientEnvironment } from './getFilteredClientEnvironment';
+export { loadGlobalEnvironment } from './loadGlobalEnvironment';

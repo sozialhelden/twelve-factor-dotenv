@@ -1,7 +1,5 @@
+import lodashPick from 'lodash.pick';
 import { defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
-
-// tslint:disable-next-line: no-var-requires
-const lodashPick = require('lodash.pick');
 
 export interface IEnvironment {
   [variableName: string]: string | undefined;
