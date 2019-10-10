@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { IEnvironment } from './getFilteredClientEnvironment';
 
 export function EnvironmentScriptTag({ env }: { env: IEnvironment }) {
