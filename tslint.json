@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint:latest", "tslint-config-airbnb", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["*.json", "**/*.json"]
+  },
+  "rules": {
+    "import-name": false,
+    "function-name": false
+  }
+}
