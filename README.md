@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/sozialhelden/twelve-factor-dotenv.svg)](https://greenkeeper.io/)
 
-- Configure server and client-side code in one central place
+- Use environment variables to configure server and client-side code in one central place
 - Supports [an `.env` file](https://www.npmjs.com/package/dotenv) if existing
 - Isometric access to environment variables in browser and server-side code
 - Customize which variables the server shares with the client to hide secret tokens
