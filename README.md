@@ -106,7 +106,10 @@ To load the environment in the browser, you can also render the `<script>` tag i
 with SSR, for example like this:
 
 ```jsx
+import * as React from 'react';
 import env from './env';
+import { environmentScriptTagFactory } from '@sozialhelden/twelve-factor-dotenv';
+const EnvironmentScriptTag = environmentScriptTagFactory(React);
 
 function Head() {
   return (
