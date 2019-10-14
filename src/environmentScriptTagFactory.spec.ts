@@ -1,7 +1,9 @@
 import * as React from 'react';
 // tslint:disable-next-line: no-implicit-dependencies
 import * as renderer from 'react-test-renderer';
-import { EnvironmentScriptTag } from '.';
+import { environmentScriptTagFactory } from '.';
+
+const EnvironmentScriptTag = environmentScriptTagFactory(React);
 
 describe('EnvironmentScriptTag', () => {
   it('renders when providing your own env', () => {

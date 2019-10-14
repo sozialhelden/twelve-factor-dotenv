@@ -5,6 +5,7 @@
   },
   "rules": {
     "import-name": false,
-    "function-name": false
+    "function-name": false,
+    "variable-name": false
   }
 }
