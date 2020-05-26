@@ -1,6 +1,6 @@
 # [12-factor](https://12factor.net) dotenv support for SSR web apps
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/sozialhelden/twelve-factor-dotenv.svg)](https://greenkeeper.io/)
+
 
 - Use environment variables to configure server and client-side code in one central place
 - Supports [an `.env` file](https://www.npmjs.com/package/dotenv) if existing
