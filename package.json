@@ -68,6 +68,6 @@
     "deploy": "npm run build && npm run test:prod && npm publish --access public"
   },
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.6.0"
   }
 }
