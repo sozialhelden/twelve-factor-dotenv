@@ -24,14 +24,12 @@ function getDefaultBrowserEnvironment() {
  * @returns Process environment as object
  * @seealso https://www.npmjs.com/package/dotenv
  */
-// tslint:disable-next-line: no-console
 function getDefaultServerEnvironment(log = console.log) {
   if (typeof window !== 'undefined') {
     throw new Error('This code should only be called in a server-side environment.');
   }
 
   try {
-    // tslint:disable-next-line: no-var-requires
     require('dotenv').config();
     log(
       'Using environment variables from .env file, overridden by system-provided environment variables.'
@@ -45,7 +43,6 @@ function getDefaultServerEnvironment(log = console.log) {
 
 const defaultOptions = {
   getBrowserEnvironment: getDefaultBrowserEnvironment,
-  // tslint:disable-next-line: no-console
   log: console.log,
 };
 

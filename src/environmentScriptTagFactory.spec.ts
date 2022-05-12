@@ -1,5 +1,4 @@
 import * as React from 'react';
-// tslint:disable-next-line: no-implicit-dependencies
 import * as renderer from 'react-test-renderer';
 import { environmentScriptTagFactory } from '.';
 
@@ -22,7 +21,6 @@ describe('EnvironmentScriptTag', () => {
   });
 
   it('throws when providing no env', () => {
-    // tslint:disable-next-line: variable-name
     expect(() => {
       EnvironmentScriptTag({} as any);
     }).toThrowError(/environment/);
