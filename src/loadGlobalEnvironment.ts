@@ -2,7 +2,7 @@
  * For this to work, your HTML must contain JavaScript code that sets `window.env` using the
  * server's configured environment before this function is called.
  */
-function getDefaultBrowserEnvironment() {
+export function getDefaultBrowserEnvironment() {
   if (typeof window === 'undefined') {
     throw new Error('This code should only be called in a browser environment.');
   }
@@ -11,7 +11,7 @@ function getDefaultBrowserEnvironment() {
 
   if (!result) {
     throw new Error(
-      'Expected a `window.env` object, but none was set. Please inject a `window.env` object with environment variables for configuration before the app code is entered.'
+      'Expected a `window.env` object, but none was set. Please inject a `window.env` object with environment variables for configuration before the app code is entered.',
     );
   }
 
@@ -24,7 +24,7 @@ function getDefaultBrowserEnvironment() {
  * @returns Process environment as object
  * @seealso https://www.npmjs.com/package/dotenv
  */
-function getDefaultServerEnvironment(log = console.log) {
+export function getDefaultServerEnvironment(log = console.log) {
   if (typeof window !== 'undefined') {
     throw new Error('This code should only be called in a server-side environment.');
   }
@@ -32,7 +32,7 @@ function getDefaultServerEnvironment(log = console.log) {
   try {
     require('dotenv').config();
     log(
-      'Using environment variables from .env file, overridden by system-provided environment variables.'
+      'Using environment variables from .env file, overridden by system-provided environment variables.',
     );
   } catch (e) {
     log('Could not read .env file. Using only system-provided environment variables.');
@@ -48,12 +48,12 @@ const defaultOptions = {
 
 let globalInitializationCount = 0;
 function logAndWarnAboutInitializationCount(
-  log: (message?: any, ...optionalParams: any[]) => void
+  log: (message?: any, ...optionalParams: any[]) => void,
 ) {
   globalInitializationCount += 1;
   if (globalInitializationCount > 1) {
     log(
-      `Warning: \`loadGlobalEnvironment()\` was called more than once (${globalInitializationCount} times). This could be an error - it should be called once on app start, and its return value should be cached and reused.`
+      `Warning: \`loadGlobalEnvironment()\` was called more than once (${globalInitializationCount} times). This could be an error - it should be called once on app start, and its return value should be cached and reused.`,
     );
   }
 }
@@ -81,11 +81,11 @@ export function resetInitializationCount() {
  * on each call otherwise, which might be slow.
  */
 
-export function loadGlobalEnvironment(
+export default function loadGlobalEnvironment(
   options: {
     log?: (message?: any, ...optionalParams: any[]) => void;
     getBrowserEnvironment?: () => { [variableName: string]: string };
-  } = {}
+  } = {},
 ) {
   const opts = { ...defaultOptions, ...options };
   let env;
@@ -97,11 +97,6 @@ export function loadGlobalEnvironment(
   } else {
     // We are in a browser
     env = opts.getBrowserEnvironment();
-    if (!env) {
-      throw new Error(
-        'Please provide a `getBrowserEnvironment()` function that returns a valid object.'
-      );
-    }
   }
   return { ...env };
 }

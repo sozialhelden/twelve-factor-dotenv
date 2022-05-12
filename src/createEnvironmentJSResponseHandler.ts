@@ -2,12 +2,12 @@ import { defaultFilterFunction, FilterFunction } from './defaultFilterFunction';
 import { getFilteredClientEnvironment } from './getFilteredClientEnvironment';
 
 // Necessary subset of ExpressJS response properties
-interface IResponse {
+export interface IResponse {
   setHeader: (header: string, value: string) => any;
   send: (body: string) => any;
 }
 
-export function createEnvironmentJSResponseHandler(
+export default function createEnvironmentJSResponseHandler(
   env: { [variableName: string]: string },
   filterFunction: FilterFunction = defaultFilterFunction,
   cacheControlHeaderValue: string | undefined = 'max-age=300'

@@ -3,8 +3,13 @@
  */
 
 import { loadGlobalEnvironment } from '.';
+import { resetInitializationCount } from './loadGlobalEnvironment';
 
 describe('loadGlobalEnvironment client-side behavior', () => {
+  beforeEach(() => {
+    resetInitializationCount();
+  });
+
   it('throws if window.env is not defined', () => {
     expect(() => loadGlobalEnvironment()).toThrowError(/Expected a `window.env` object/);
   });

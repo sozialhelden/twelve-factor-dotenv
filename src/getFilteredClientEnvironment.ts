@@ -17,14 +17,14 @@ export interface IEnvironment {
  * https://12factor.net/config explains advantages of this concept.
  */
 
-export function getFilteredClientEnvironment(
+export default function getFilteredClientEnvironment(
   env: IEnvironment,
-  filterFunction: FilterFunction = defaultFilterFunction
+  filterFunction: FilterFunction = defaultFilterFunction,
 ): IEnvironment {
   const result: IEnvironment = {};
   Object.keys(env)
-    .filter(k => filterFunction(k, env[k]))
-    .forEach(k => {
+    .filter((k) => filterFunction(k, env[k]))
+    .forEach((k) => {
       result[k] = env[k];
     });
   return result;

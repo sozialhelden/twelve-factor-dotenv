@@ -3,8 +3,13 @@
  */
 
 import { loadGlobalEnvironment } from '.';
+import { getDefaultBrowserEnvironment, resetInitializationCount } from './loadGlobalEnvironment';
 
 describe('loadGlobalEnvironment server-side behavior', () => {
+  beforeEach(() => {
+    resetInitializationCount();
+  });
+
   it('logs and complains if called more than once', () => {
     const logMessages: any[] = [];
     const log = (msg: string) => logMessages.push(msg);
@@ -35,5 +40,13 @@ describe('loadGlobalEnvironment server-side behavior', () => {
       REACT_APP_TEST_VARIABLE: 'some value',
       TWELVE_FACTOR_DOTENV_FOO: 'bar',
     });
+  });
+});
+
+describe('getDefaultBrowserEnvironment', () => {
+  it('throws if called in a server-side environment', () => {
+    expect(() => {
+      getDefaultBrowserEnvironment();
+    }).toThrowError(/browser/);
   });
 });
