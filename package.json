@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "dotenv": "^8.6.0",
+    "jest-environment-jsdom": "^28.1.0",
     "ts-jest": "^28.0.2"
   }
 }
