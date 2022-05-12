@@ -1,7 +1,7 @@
 {
   "name": "@sozialhelden/twelve-factor-dotenv",
   "private": false,
-  "version": "16.0.0",
+  "version": "17.0.0",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
