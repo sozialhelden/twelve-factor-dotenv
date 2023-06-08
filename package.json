@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@types/jsdom": "^16.2.14",
-    "@types/node": "^17.0.32",
+    "@types/node": "^17.0.45",
     "dotenv": "^8.6.0",
     "jest-environment-jsdom": "^28.1.0",
     "ts-jest": "^28.0.2"
